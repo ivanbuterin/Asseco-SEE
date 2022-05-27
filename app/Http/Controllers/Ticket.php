@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class Ticket extends Controller
 {
     public function index() {
-        dd('Ticket control');
+        echo "Novi ticket je otvoren";
     }
 }
