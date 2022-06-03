@@ -25,6 +25,7 @@ Route::get('/ticket', function () {
     return view('ticket');
 })->middleware(['auth'])->name('ticket');
 
-Route::get('/ticketcontrol', 'App\Http\Controllers\Ticket@index');
+Route::post('/ticketcontrol', 'App\Http\Controllers\TicketsController@store')->middleware(['auth']);
+Route::get('/usercontrol', 'App\Http\Controllers\UserController@store')->middleware(['auth']);
 
 require __DIR__.'/auth.php';

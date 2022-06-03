@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Role') }}
         </h2>
     </x-slot>
 
@@ -9,7 +9,14 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
+                    Dobrodošli u ticketing sustav! Molim odaberite svoju ulogu.
+                    <br></br>
+                    <form action="/usercontrol" method="GET">
+                         <input type="radio" id="agent" name="radio1" value="Agent">
+                         <label for="agent">Agent</label><br>
+                         <input type="radio" id="klijent" name="radio1" value="Klijent">
+                         <label for="klijent">Tehničar</label><br><br>
+                         <input type="submit" style="background-color: springgreen; font-size: 24px;" value="Kreni"><br>
                 </div>
             </div>
         </div>
