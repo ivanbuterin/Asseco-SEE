@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
+use App\Models\Status;
+use App\Models\TicketUser;
 use App\Http\Requests\StoreTicketRequest;
 use App\Http\Requests\UpdateTicketRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TicketsController extends Controller
 {
@@ -37,18 +41,45 @@ class TicketsController extends Controller
     public function store(StoreTicketRequest $request)
 
     {
+        $agent = Auth::id();
 
         $ticket = new Ticket();
+        $ticket->name = $request->fname;
+        $ticket->description = $request->opis;
+        $ticket->id_agent = $agent;
+        $ticket->id_client = $request->klijent;
 
-       Ticket::query()->create([
+        $ticket->save();
+
+        $ticket_id = $ticket->id;
+
+
+
+       /*Ticket::query()->create([
        'name' => $request->fname,
-       'description' => $request->lname
-        //'user_id' => auth()->id(),
-        //'client_id' => auth()->id()
+       'description' => $request->opis,
+        'id_agent' => $agent,
+        'id_client' => $request->klijent,
+
+        ]);*/
+
+
+
+       TicketUser::query()->create([
+       'technician_id' => $request->tehnicar,
+       'ticket_id' => $ticket_id,
+
         ]);
 
+       Status::query()->create([
+       'ticket_id' => $ticket_id,
+       'progress' => "Otvoren",
+
+        ]);
+
+       return redirect('dashboard');
+
        
-       $ticket->save();
     }
 
     /**

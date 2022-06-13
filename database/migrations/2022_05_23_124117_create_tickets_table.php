@@ -17,8 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
+            $table->unsignedBigInteger('id_agent');
+            $table->foreign('id_agent')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('id_client');
+            $table->foreign('id_client')->references('id')->on('clients')->onDelete('cascade');
+            $table->timestamps();
             //$table->foreignId('user_id')->nullable()->constrained();
-            //$table->foreignId('client_id')->nullable()->constrained();
+            
             
         });
     }

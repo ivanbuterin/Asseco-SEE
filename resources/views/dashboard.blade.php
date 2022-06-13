@@ -14,8 +14,8 @@
                     <form action="/usercontrol" method="GET">
                          <input type="radio" id="agent" name="radio1" value="Agent">
                          <label for="agent">Agent</label><br>
-                         <input type="radio" id="klijent" name="radio1" value="Klijent">
-                         <label for="klijent">Tehničar</label><br><br>
+                         <input type="radio" id="tehnicar" name="radio1" value="Tehničar">
+                         <label for="tehnicar">Tehničar</label><br><br>
                          <input type="submit" style="background-color: springgreen; font-size: 24px;" value="Kreni"><br>
                 </div>
             </div>

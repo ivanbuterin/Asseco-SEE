@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -36,7 +37,13 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        dd($request);
+        $id = Auth::id();
+        $user = User::find($id);
+        $user->role = $request->radio1;
+
+        $user->save();
+
+        return view('/ticket');
     }
 
     /**

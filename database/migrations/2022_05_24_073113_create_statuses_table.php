@@ -14,8 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('statuses', function (Blueprint $table) {
-            $table->foreignId('ticket_id');
-            $table->boolean('done')->default(0);
+            $table->unsignedBigInteger('ticket_id');
+            $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete('cascade');
+            $table->string('progress')->default('otvoren');
+            $table->timestamps();
         });
     }
 
