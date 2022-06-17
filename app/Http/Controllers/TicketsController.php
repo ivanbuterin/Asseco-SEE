@@ -17,9 +17,20 @@ class TicketsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        echo "Novi ticket je otvoren";
+    public function index() {
+
+        $tickets = Ticket::where('id_agent', Auth::id())->get();
+        return view('agent_ticket', [
+            'tickets' => $tickets,
+        ]);       
+    }
+
+    public function info($id) {
+
+        $ticket = Ticket::where('id', $id)->first();
+        return view('details', [
+            'ticket' => $ticket,
+        ]);       
     }
 
     /**

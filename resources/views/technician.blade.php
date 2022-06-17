@@ -18,7 +18,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     {{ $ticket->name }}
                 
-                <div class="dugmic"><button type="button" style="float:right; background-color: seagreen;">Otvori</button></div>
+                <div class="dugmic"><a href="/ticketinfo/{{ $ticket->id }}"> <button type="button" style="float:right; background-color: seagreen;">Otvori</button></a></div>
                 </div>
             @empty
                 <div class="p-6 bg-white border-b border-gray-200">

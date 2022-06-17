@@ -15,6 +15,11 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @if (Auth::user()->role == 'Agent')
+                    <x-nav-link :href="route('alltickets')" :active="request()->routeIs('alltickets')">
+                        {{ __('Vaši ticketi') }}
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 

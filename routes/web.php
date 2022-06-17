@@ -30,6 +30,9 @@ Route::get('/usercontrol', 'App\Http\Controllers\UserController@store')->middlew
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware(['auth'])->name('dashboard');
 Route::get('/technician', 'App\Http\Controllers\DashboardController@index')->middleware(['auth'])->name('technician');
 Route::get('/technician', 'App\Http\Controllers\DashboardController@index')->middleware(['auth'])->name('technician');
+Route::get('/agent', 'App\Http\Controllers\TicketsController@index')->middleware(['auth'])->name('agent');
+Route::get('/alltickets', 'App\Http\Controllers\TicketsController@index')->middleware(['auth'])->name('alltickets');
+Route::get('/ticketinfo/{id}', 'App\Http\Controllers\TicketsController@info')->middleware(['auth'])->name('ticketinfo');
 
 
 require __DIR__.'/auth.php';

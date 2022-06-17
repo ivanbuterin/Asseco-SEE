@@ -43,7 +43,8 @@ class UserController extends Controller
 
         $user->save();
 
-        return view('/ticket');
+        return redirect('dashboard');
+
     }
 
     /**
