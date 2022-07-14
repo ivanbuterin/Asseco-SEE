@@ -110,9 +110,13 @@ class TicketsController extends Controller
      * @param  \App\Models\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ticket $ticket)
-    {
-        //
+    public function edit(Ticket $ticket, $id) {
+
+        
+        $ticket = Ticket::where('id', $id)->first();
+        return view('edit_ticket', [
+            'ticket' => $ticket,
+        ]);
     }
 
     /**
@@ -122,9 +126,21 @@ class TicketsController extends Controller
      * @param  \App\Models\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateTicketRequest $request, Ticket $ticket)
-    {
-        //
+    public function update(UpdateTicketRequest $request, $id) {
+
+        dd($request);
+        $agent = Auth::id();
+
+        $ticket = Ticket::find($id);
+        $ticket->name = $request->fname;
+        $ticket->description = $request->opis;
+        $ticket->id_agent = $agent;
+        $client = Client::find($ticket->id_client);
+        $ticket->id_client = $client->id;
+
+        $ticket->save();
+
+        $ticket_id = $ticket->id;
     }
 
     /**

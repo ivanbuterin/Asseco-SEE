@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_agent');
             $table->foreign('id_agent')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('id_client');
-            $table->foreign('id_client')->references('id')->on('clients')->onDelete('cascade');
+            $table->foreign('id_client')->references('id')->on('clients')->nullable()->onDelete('cascade');
             $table->timestamps();
             //$table->foreignId('user_id')->nullable()->constrained();
             

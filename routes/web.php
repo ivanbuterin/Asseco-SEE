@@ -33,6 +33,10 @@ Route::get('/technician', 'App\Http\Controllers\DashboardController@index')->mid
 Route::get('/agent', 'App\Http\Controllers\TicketsController@index')->middleware(['auth'])->name('agent');
 Route::get('/alltickets', 'App\Http\Controllers\TicketsController@index')->middleware(['auth'])->name('alltickets');
 Route::get('/ticketinfo/{id}', 'App\Http\Controllers\TicketsController@info')->middleware(['auth'])->name('ticketinfo');
+Route::get('/ticketedit/{id}', 'App\Http\Controllers\TicketsController@edit')->middleware(['auth'])->name('ticketedit');
+Route::put('ticketupdate/{id}', 'App\Http\Controllers\TicketsController@update')->middleware(['auth'])->name('ticketupdate');
+Route::get('/forgot_password', 'App\Http\Controllers\Security\ForgotPassword@forgot')->middleware(['auth'])->name('forgot_password');
+Route::post('/forgot_password', 'App\Http\Controllers\Security\ForgotPassword@password')->middleware(['auth'])->name('forgot_password');
 
 
 require __DIR__.'/auth.php';
