@@ -5,11 +5,7 @@
         </h2>
     </x-slot>
 
-    <style>
-        .dugmic {
-            color: white;
-        }
-    </style>
+    
 
     <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -18,7 +14,8 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     {{ $ticket->name }}
                 
-                <div class="dugmic"><a href="/ticketinfo/{{ $ticket->id }}"> <button type="button" style="float:right; background-color: seagreen;">Otvori</button></a></div>
+                <div style="float:right">
+                    <a href="/ticketinfo/{{ $ticket->id }}"> <button type="button" style="background-color: seagreen; color: white">Otvori</button></a>
                 </div>
             @empty
                 <div class="p-6 bg-white border-b border-gray-200">
