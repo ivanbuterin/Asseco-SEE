@@ -30,14 +30,15 @@
                 @foreach ($tickets as $ticket) 
                 <div class="p-6 bg-white border-b border-gray-200">
                     {{$ticket->name}}
-                    <div class="dugmic"><a href="/ticketinfo/{{ $ticket->id }}"> <button type="button" style="float:right; background-color: green; color: white;">Otvori</button></a></div>
-                    <div class="dugmic"><a href="/ticketedit/{{ $ticket->id }}"> <button type="button" style="float:right; background-color: skyblue; color: white;">Uredi</button></a></div>
-                    <div class="dugmic"><a href="/ticketdelete/{{ $ticket->id }}"> <button type="button" style="float:right; background-color: darkred;color: white;">Izbriši</button></a></div>
+                    <div style="float:right">
+                    <a href="/ticketinfo/{{ $ticket->id }}"> <button type="button" style="background-color:green; color: white">Otvori</button></a>
+                    <a href="/ticketedit/{{ $ticket->id }}"> <button type="button" style="background-color:skyblue; color: white">Uredi</button></a>
+                    <a href="/ticketdelete/{{ $ticket->id }}"> <button type="button" style="background-color:darkred; color: white">Izbriši</button></a>
+                    </div>
                 </div>
 
                 </div>
                 @endforeach
             </div>
         </div>
-    </div>
 </x-app-layout>
